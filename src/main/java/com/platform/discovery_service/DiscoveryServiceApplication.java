@@ -7,9 +7,12 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 @SpringBootApplication
 @EnableEurekaServer
 public class DiscoveryServiceApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(DiscoveryServiceApplication.class, args);
-	}
+    /**
+     * Main method to run the Spring Boot application.
+     * @param args command line arguments
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(DiscoveryServiceApplication.class, args);
+    }
 
 }
