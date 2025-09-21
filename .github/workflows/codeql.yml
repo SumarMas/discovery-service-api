@@ -10,17 +10,12 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze Java
     runs-on: ubuntu-latest
     permissions:
       actions: read
       contents: read
       security-events: write
-
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'java', 'javascript' ]  # Java para microservicios, JS/TS para Angular
 
     steps:
       - name: Checkout repository
@@ -29,7 +24,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
-          languages: ${{ matrix.language }}
+          languages: java
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v3
