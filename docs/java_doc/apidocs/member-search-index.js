@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"com.platform.discovery_service","c":"DiscoveryServiceApplication","l":"DiscoveryServiceApplication()","u":"%3Cinit%3E()"},{"p":"com.platform.discovery_service","c":"DiscoveryServiceApplication","l":"main(String[])","u":"main(java.lang.String[])"}];updateSearchResults();

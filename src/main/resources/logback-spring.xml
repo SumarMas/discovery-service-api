@@ -1,0 +1,36 @@
+<configuration scan="true">
+
+    <!-- Propiedades -->
+    <property name="LOG_PATH" value="logs"/>
+    <property name="LOG_FILE" value="${LOG_PATH}/discovery-service.log"/>
+
+    <!-- Consola -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%cyan(%d{HH:mm:ss}) %highlight(%-5level) %magenta([%thread]) %yellow(%logger{15}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Archivo con rotación diaria -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/discovery-service-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>7</maxHistory> <!-- guarda 7 días de logs -->
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%thread] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Root logger -->
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+    <!-- Reducir ruido de Eureka -->
+    <logger name="com.netflix.eureka" level="WARN"/>
+    <logger name="com.netflix.discovery" level="WARN"/>
+
+</configuration>
